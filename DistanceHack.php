@@ -28,16 +28,17 @@ class Main extends \pocketmine\plugin\PluginBase implements \pocketmine\event\Li
 	*/
 	public function onDamage(EntityDamageEvent $event){
 		if (!$event instanceof EntityDamageByEntityEvent)
-		return true;
+			return true;
 		if (!$event->getDamager() instanceof Player)
-		return true;
+			return true;
 		if (!$event->getEntity() instanceof Player)
-		return true;
+			return true;
+		if ($event->getCause() === EntityDamageEvent::CAUSE_PROJECTILE)
+			return true;
 		if ($event->getEntity()->distanceSquared($event->getDamager()) > 20){
 			$this->getLogger()->info($event->getDamager()->getName() . ', 사거리 ' . (int) ($event->getEntity()->distanceSquared($event->getDamager()) / 4) . ' 블럭');
 			$event->getDamager()->sendPopUp('§c사거리 핵 감지로 캔슬 되었습니다');
 			$event->setCancelled();
 		}
 	}
-
 }
