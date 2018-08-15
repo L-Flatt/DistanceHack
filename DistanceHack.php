@@ -1,12 +1,12 @@
 <?php
 
 /**
-* @name DistanceHack
-* @main DistanceHack\Main
-* @author BLEAN
-* @version 1.0
-* @api 4.0.0
-*/
+ * @name DistanceHack
+ * @main DistanceHack\Main
+ * @author BLEAN
+ * @version 1.0
+ * @api 4.0.0
+ */
 
 namespace DistanceHack;
 
